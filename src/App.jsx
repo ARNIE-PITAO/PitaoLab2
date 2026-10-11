@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function TaskItem({ task, onToggle, onDelete }) {
   return (
-    <div className="flex items-center gap-3 border-b border-gray-200 py-3 last:border-b-0">
+    <div className="flex items-center gap-3 border-b border-slate-700 py-3 last:border-b-0">
       <input
         type="checkbox"
         checked={task.done}
@@ -10,15 +10,15 @@ function TaskItem({ task, onToggle, onDelete }) {
         className="h-4 w-4 accent-green-700"
         aria-label={task.done ? "Mark task not done" : "Mark task done"}
       />
-      <span className={`flex-1 break-words text-sm ${task.done ? "text-gray-400 line-through" : "text-gray-800"}`}>
+      <span className={`flex-1 break-words text-sm ${task.done ? "text-slate-500 line-through" : "text-slate-100"}`}>
         {task.text}
       </span>
-      <span className={`text-xs ${task.done ? "text-green-700" : "text-gray-500"}`}>
+      <span className={`text-xs ${task.done ? "text-green-400" : "text-slate-400"}`}>
         {task.done ? "Done" : "Not Done"}
       </span>
       <button
         onClick={() => onDelete(task.id)}
-        className="rounded px-2 py-1 text-sm text-red-600 hover:bg-red-50"
+        className="rounded px-2 py-1 text-sm text-red-400 hover:bg-slate-700"
         aria-label={`Delete ${task.text}`}
       >
         Delete
@@ -29,8 +29,8 @@ function TaskItem({ task, onToggle, onDelete }) {
 
 function UserGuide() {
   return (
-    <div className="mt-5 rounded-lg bg-gray-50 p-4 text-sm text-gray-600">
-      <h2 className="mb-2 font-semibold text-gray-800">User Guide</h2>
+    <div className="mt-5 rounded-lg bg-slate-700 p-4 text-sm text-slate-300">
+      <h2 className="mb-2 font-semibold text-slate-100">User Guide</h2>
       <p>1. Type a task and click Add Task.</p>
       <p>2. Check the box to mark it Done or Not Done.</p>
       <p>3. Click Delete to remove a task.</p>
@@ -77,8 +77,8 @@ function App() {
 
   return (
     <main className="min-h-screen px-4 py-8 sm:py-12">
-      <section className="mx-auto max-w-xl overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
-        <header className="bg-green-700 px-5 py-5 text-white sm:px-6">
+      <section className="mx-auto max-w-xl overflow-hidden rounded-lg border border-slate-700 bg-slate-800 shadow-sm">
+        <header className="bg-green-800 px-5 py-5 text-white sm:px-6">
           <p className="text-sm text-green-100">DCIT 26 - Laboratory 2</p>
           <h1 className="mt-1 text-2xl font-bold">My To-Do List</h1>
         </header>
@@ -90,7 +90,7 @@ function App() {
               value={taskText}
               onChange={(event) => setTaskText(event.target.value)}
               placeholder="Write a task..."
-              className="min-w-0 flex-1 rounded-md border border-gray-300 px-3 py-3 text-sm outline-none focus:border-green-700 focus:ring-1 focus:ring-green-700"
+              className="min-w-0 flex-1 rounded-md border border-slate-600 bg-slate-700 px-3 py-3 text-sm text-white placeholder-slate-400 outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500"
             />
             <button
               type="submit"
@@ -101,11 +101,11 @@ function App() {
           </form>
 
           <div className="mt-5 flex items-center justify-between gap-3">
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-slate-300">
               {tasks.length} task{tasks.length === 1 ? "" : "s"} · {doneCount} done
             </p>
             {tasks.length > 0 && (
-              <button onClick={clearTasks} className="text-sm text-red-600 hover:underline">
+              <button onClick={clearTasks} className="text-sm text-red-400 hover:underline">
                 Clear All
               </button>
             )}
@@ -113,7 +113,7 @@ function App() {
 
           <div className="mt-2">
             {tasks.length === 0 ? (
-              <p className="rounded-md bg-gray-50 px-3 py-6 text-center text-sm text-gray-500">
+              <p className="rounded-md bg-slate-700 px-3 py-6 text-center text-sm text-slate-400">
                 No tasks yet. Add your first task above.
               </p>
             ) : (
